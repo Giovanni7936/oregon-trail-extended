@@ -6,6 +6,7 @@ class Wagon {
 
     }
     getAvailableSeatCount(){
+       
 
         return this.capacity - this.passengers.length
     }
@@ -18,7 +19,8 @@ class Wagon {
     }
     shouldQuarantine(){
         for(let index = 0; index < this.passengers.length; index ++){
-            if(this.passengers[index].isHealthy == false){
+            
+            if(this.passengers[index].isHealthy === false){
                 return true
             }
             
@@ -28,6 +30,7 @@ class Wagon {
     }
     totalFood(){
         let total = 0
+        //console.log(this.passengers);
         for(let index = 0; index < this.passengers.length; index ++){
            total += this.passengers[index].food
             

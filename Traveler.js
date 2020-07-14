@@ -12,18 +12,77 @@ class Traveler  {
     }
 
     eat(){
-        this.food -=1
-        if(this.food == 0 ){
-            this.isHealthy = false
+        
+        if (this.food < 1) {
+			return (this.isHealthy = false);
+		}
+		this.food -= 1;
+	}
+
+        
         }
-        else if(this.food < 0){
-            this.food = 0
-        }
-    } 
+    
+
+    
 
     
 
 
    
+
+
+class Doctor extends Traveler {
+    constructor (name, food, isHealthy){
+        super(name, food, isHealthy)
+
+        
+    }
+   
+
+
+    heal(traveler){
+        traveler.isHealthy = true
+    }
 }
 
+class Hunter extends Traveler{
+    constructor(name, food = 2, isHealthy){
+        super(name, food, isHealthy)
+    
+        this.food = food
+        
+    
+
+    }
+    hunt(){
+        this.food +=5
+
+    }
+
+    eat(){
+        
+
+        if(this.food < 2 ){
+            this.food -=1
+            return (this.isHealthy = false);
+             
+        }
+        this.food -=2
+        
+
+
+
+
+    }
+    giveFood(traveler, numOfFoodUnits){
+        if(numOfFoodUnits <= this.food){
+            traveler.food +=numOfFoodUnits
+            this.food -= numOfFoodUnits
+
+        } 
+    }
+        
+
+        
+
+}
